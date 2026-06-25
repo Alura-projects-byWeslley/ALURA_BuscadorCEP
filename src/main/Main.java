@@ -23,7 +23,7 @@ public class Main {
             HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String json = gson.toJson(response.body());
+            String json = response.body();
             System.out.println(json);
             var escritor = new FileWriter("endereco.json");
             escritor.write(json);
